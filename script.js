@@ -288,6 +288,83 @@ filterBtns.forEach(btn => {
 });
 
 
+// ========== GALLERY ACCORDION ==========
+function toggleAccordion(category) {
+  const accordionItem = document.querySelector(`#${category}-content`).parentElement;
+  const allAccordionItems = document.querySelectorAll('.accordion-item');
+  
+  // Close all other accordions
+  allAccordionItems.forEach(item => {
+    if (item !== accordionItem) {
+      item.classList.remove('active');
+    }
+  });
+  
+  // Toggle current accordion
+  accordionItem.classList.toggle('active');
+}
+
+// Initialize accordion - close all by default
+document.addEventListener('DOMContentLoaded', function() {
+  const allAccordionItems = document.querySelectorAll('.accordion-item');
+  allAccordionItems.forEach(item => {
+    item.classList.remove('active');
+  });
+});
+
+// ========== GALLERY LOAD MORE ==========
+function loadMoreImages() {
+  const hiddenItems = document.querySelectorAll('.gallery-item.hidden');
+  const loadMoreBtn = document.getElementById('loadMoreBtn');
+  
+  if (hiddenItems.length === 0) {
+    // No more images to load
+    if (loadMoreBtn) {
+      loadMoreBtn.textContent = 'All Images Loaded';
+      loadMoreBtn.disabled = true;
+    }
+    return;
+  }
+  
+  // Show next 4 images
+  const itemsToShow = Array.from(hiddenItems).slice(0, 4);
+  
+  itemsToShow.forEach((item, index) => {
+    setTimeout(() => {
+      item.classList.remove('hidden');
+      item.classList.add('visible');
+    }, index * 100); // Staggered animation
+  });
+  
+  // Update button text or hide if no more images
+  const remainingHidden = document.querySelectorAll('.gallery-item.hidden').length;
+  if (remainingHidden === 0) {
+    if (loadMoreBtn) {
+      loadMoreBtn.textContent = 'All Images Loaded';
+      loadMoreBtn.disabled = true;
+    }
+  } else {
+    if (loadMoreBtn) {
+      loadMoreBtn.textContent = `Load More Images (${remainingHidden} remaining)`;
+    }
+  }
+}
+
+// Initialize gallery load more
+document.addEventListener('DOMContentLoaded', function() {
+  const loadMoreBtn = document.getElementById('loadMoreBtn');
+  if (loadMoreBtn) {
+    // Update initial button text
+    const hiddenCount = document.querySelectorAll('.gallery-item.hidden').length;
+    if (hiddenCount > 0) {
+      loadMoreBtn.textContent = `Load More Images (${hiddenCount} available)`;
+    } else {
+      loadMoreBtn.style.display = 'none';
+    }
+  }
+});
+
+
 // ========== TESTIMONIAL SLIDER ==========
 
 const testimonials = [
@@ -361,23 +438,83 @@ if (testimonialText && testimonialAuthor && testimonialRole && sliderDots) {
 
 
 // ========== CONTACT FORM ==========
+// Contact form now uses standard HTML submission
 
-const contactForm = document.getElementById('contactForm');
-const contactSuccess = document.getElementById('contactSuccess');
+// ========== SUCCESS POPUP ==========
+const successPopup = document.getElementById('successPopup');
 
-if (contactForm && contactSuccess) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    contactForm.style.display = 'none';
-    contactSuccess.style.display = 'block';
+function showSuccessPopup() {
+  if (successPopup) {
+    successPopup.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    
+    // Auto-close after 5 seconds
     setTimeout(() => {
-      contactSuccess.style.display = 'none';
-      contactForm.style.display = 'flex';
-      contactForm.reset();
-    }, 3000);
-  });
+      closeSuccessPopup();
+    }, 5000);
+  }
 }
 
+function closeSuccessPopup() {
+  if (successPopup) {
+    successPopup.classList.remove('active');
+    document.body.style.overflow = ''; // Restore scrolling
+  }
+}
+
+// Handle form submission success
+document.addEventListener('DOMContentLoaded', function() {
+  // Check if we're coming from a successful form submission
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('success') === 'true') {
+    showSuccessPopup();
+    // Remove the success parameter from URL
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
+  
+  // Add form submission handlers
+  const contactForm = document.getElementById('contactForm');
+  const newsletterForm = document.getElementById('newsletterForm');
+  
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      // For Formsubmit, we'll show success after a brief delay
+      setTimeout(() => {
+        showSuccessPopup();
+        contactForm.reset();
+      }, 1000);
+    });
+  }
+  
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', function(e) {
+      // For Formsubmit, we'll show success after a brief delay
+      setTimeout(() => {
+        showSuccessPopup();
+        newsletterForm.reset();
+      }, 1000);
+    });
+  }
+});
+
+// ========== FORM SUBMISSION LOADING STATES ==========
+
+const contactSubmitBtn = document.getElementById('contactSubmitBtn');
+const newsletterSubmitBtn = document.getElementById('newsletterSubmitBtn');
+
+function showLoading(button) {
+  if (button) {
+    button.classList.add('btn--loading');
+    button.disabled = true;
+  }
+}
+
+function hideLoading(button) {
+  if (button) {
+    button.classList.remove('btn--loading');
+    button.disabled = false;
+  }
+}
 
 // ========== NEWSLETTER FORM ==========
 
@@ -385,14 +522,31 @@ const newsletterForm = document.getElementById('newsletterForm');
 const newsletterSuccess = document.getElementById('newsletterSuccess');
 
 if (newsletterForm && newsletterSuccess) {
-  newsletterForm.addEventListener('submit', (e) => {
+  newsletterForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    newsletterForm.style.display = 'none';
-    newsletterSuccess.style.display = 'block';
-    setTimeout(() => {
-      newsletterSuccess.style.display = 'none';
-      newsletterForm.style.display = 'flex';
-      newsletterForm.reset();
-    }, 4000);
+
+    const formData = new FormData(newsletterForm);
+
+    try {
+      const response = await fetch(newsletterForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        newsletterForm.style.display = 'none';
+        newsletterSuccess.style.display = 'block';
+        setTimeout(() => {
+          newsletterSuccess.style.display = 'none';
+          newsletterForm.style.display = 'flex';
+          newsletterForm.reset();
+        }, 4000);
+      } else {
+        alert('Oops! There was a problem subscribing. Please try again.');
+      }
+    } catch (error) {
+      alert('Oops! There was a problem subscribing. Please try again.');
+    } finally { hideLoading(newsletterSubmitBtn); } // Hide loading spinner regardless of outcome
   });
 }
