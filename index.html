@@ -5,24 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kids Kingdom CIC – Enriching Children's Lives</title>
   <meta name="description" content="Kids Kingdom CIC supports children and young people through mentoring, wellbeing programmes, leadership development, and spiritual growth." />
-  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="icon" type="image/jpeg" href="assets/logo1.JPG" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="page-loader" id="pageLoader" aria-hidden="true">
+    <div class="loader-inner">
+      <img src="assets/logo1.JPG" alt="Kids Kingdom CIC" class="loader-logo" />
+      <div class="loader-spinner"></div>
+      <p>Loading Kids Kingdom CIC...</p>
+    </div>
+  </div>
 
   <!-- ==================== NAVBAR ==================== -->
   <nav id="navbar">
     <div class="nav-container">
       <a href="#" class="nav-brand">
-        <img src="assets/logo.png" alt="Kids Kingdom CIC" class="nav-logo" />
+        <img src="assets/logo1.JPG" alt="Kids Kingdom CIC" class="nav-logo" />
         <span class="nav-title">Kids Kingdom CIC</span>
       </a>
 
       <div class="nav-links" id="navLinks">
         <a href="#about">About</a>
         <a href="#programmes">Programmes</a>
+        <a href="events.html">Events</a>
         <a href="#values">Values</a>
         <a href="#impact">Impact</a>
         <a href="#gallery">Gallery</a>
@@ -40,6 +48,7 @@
     <div class="mobile-menu" id="mobileMenu">
       <a href="#about">About</a>
       <a href="#programmes">Programmes</a>
+      <a href="events.html">Events</a>
       <a href="#values">Values</a>
       <a href="#impact">Impact</a>
       <a href="#gallery">Gallery</a>
@@ -70,29 +79,49 @@
         <h2>About Kids Kingdom CIC</h2>
         <div class="section-line bg-primary"></div>
       </div>
-      <div class="about-text fade-in-up">
-        <p>Kids Kingdom CIC exists to enrich the lives of children and young people by providing safe, structured, and empowering programmes that support emotional wellbeing, confidence, character development, leadership skills, and spiritual growth.</p>
-        <p>We deliver mentoring programmes, including girls' identity and self-worth initiatives, workshops, conferences, daily camp-style programmes, after-school clubs, and holiday activities designed to help children understand their identity, develop resilience, and build strong moral foundations.</p>
-        <p>Our programmes include faith-informed teaching, values-based education, leadership development, and age-appropriate prayer sessions that promote hope, purpose, and positive life choices.</p>
-        <p>We are committed to serving children and families within the community, including those from disadvantaged backgrounds, and ensuring our activities are accessible, inclusive, and impactful.</p>
-        <p class="highlight">All profits generated are reinvested into expanding programmes, subsidising access for families in need, and increasing long-term community impact.</p>
-      </div>
-      <div class="highlights-grid fade-in-up">
-        <div class="highlight-card">
-          <div class="highlight-icon">❤️</div>
-          <span>Emotional Wellbeing</span>
+      <div class="about-grid fade-in-up">
+        <div class="about-text">
+          <p class="eyebrow">Building confident children through care, values, and community.</p>
+          <p>Kids Kingdom CIC enriches the lives of children and young people with safe, structured programmes that nurture emotional wellbeing, confidence, leadership, character, and spiritual growth.</p>
+          <p>We blend mentoring, after-school clubs, holiday activities, workshops, and community events to help every child find identity, develop resilience, and make positive choices.</p>
+          <div class="about-list">
+            <div>
+              <span>✔</span>
+              <p>Faith-informed learning that inspires hope, purpose, and strong values.</p>
+            </div>
+            <div>
+              <span>✔</span>
+              <p>Inclusive programmes designed to support children from all backgrounds.</p>
+            </div>
+            <div>
+              <span>✔</span>
+              <p>Family-focused experiences that strengthen community connection.</p>
+            </div>
+          </div>
+          <div class="about-buttons">
+            <a href="#programmes" class="btn btn-secondary">Explore Programmes</a>
+            <a href="#get-involved" class="btn btn-outline">Get Involved</a>
+          </div>
+          <p class="highlight">All profits generated are reinvested into expanding programmes, subsidising access for families in need, and increasing long-term community impact.</p>
         </div>
-        <div class="highlight-card">
-          <div class="highlight-icon">🛡️</div>
-          <span>Safe Environments</span>
-        </div>
-        <div class="highlight-card">
-          <div class="highlight-icon">👥</div>
-          <span>Community Focused</span>
-        </div>
-        <div class="highlight-card">
-          <div class="highlight-icon">🌱</div>
-          <span>Character Growth</span>
+
+        <div class="highlights-grid">
+          <div class="highlight-card">
+            <div class="highlight-icon">❤️</div>
+            <span>Emotional Wellbeing</span>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon">🛡️</div>
+            <span>Safe Environments</span>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon">👥</div>
+            <span>Community Focused</span>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon">🌱</div>
+            <span>Character Growth</span>
+          </div>
         </div>
       </div>
     </div>
@@ -163,6 +192,72 @@
       </div>
     </div>
   </section>
+
+  <!-- ==================== GALLERY ==================== -->
+  <section id="gallery" class="section section-alt">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <h2>Events & Activities</h2>
+        <p class="section-subtitle">A glimpse into the programmes and moments that shape our children's journeys.</p>
+        <div class="section-line bg-accent"></div>
+      </div>
+      <div class="section-cta fade-in-up">
+        <a href="events.html" class="btn btn-secondary">Open Events Page</a>
+      </div>
+
+      <div class="gallery-filters fade-in-up">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="arts">Arts</button>
+        <button class="filter-btn" data-filter="sports">Sports</button>
+        <button class="filter-btn" data-filter="community">Community</button>
+        <button class="filter-btn" data-filter="education">Education</button>
+      </div>
+
+      <div class="gallery-grid fade-in-up">
+        <button class="gallery-item" data-category="arts" onclick="openLightbox(0)">
+          <img src="assets/1.jpeg" alt="Kids Kingdom CIC event photo 1" loading="lazy" />
+          <div class="gallery-label"><span>Event Photo 1</span></div>
+        </button>
+        <button class="gallery-item" data-category="sports" onclick="openLightbox(1)">
+          <img src="assets/2.jpeg" alt="Kids Kingdom CIC event photo 2" loading="lazy" />
+          <div class="gallery-label"><span>Event Photo 2</span></div>
+        </button>
+        <button class="gallery-item" data-category="education" onclick="openLightbox(2)">
+          <img src="assets/3.jpeg" alt="Kids Kingdom CIC event photo 3" loading="lazy" />
+          <div class="gallery-label"><span>Event Photo 3</span></div>
+        </button>
+        <button class="gallery-item" data-category="community" onclick="openLightbox(3)">
+          <img src="assets/4.jpeg" alt="Kids Kingdom CIC event photo 4" loading="lazy" />
+          <div class="gallery-label"><span>Event Photo 4</span></div>
+        </button>
+        <button class="gallery-item" data-category="education" onclick="openLightbox(4)">
+          <img src="assets/5.jpeg" alt="Kids Kingdom CIC event photo 5" loading="lazy" />
+          <div class="gallery-label"><span>Event Photo 5</span></div>
+        </button>
+        <button class="gallery-item" data-category="community" onclick="openLightbox(5)">
+          <img src="assets/6.jpeg" alt="Kids Kingdom CIC event photo 6" loading="lazy" />
+          <div class="gallery-label"><span>Event Photo 6</span></div>
+        </button>
+        <button class="gallery-item" data-category="arts" onclick="openLightbox(6)">
+          <img src="assets/7.jpeg" alt="Kids Kingdom CIC event photo 7" loading="lazy" />
+          <div class="gallery-label"><span>Event Photo 7</span></div>
+        </button>
+        <button class="gallery-item" data-category="sports" onclick="openLightbox(7)">
+          <img src="assets/8.jpeg" alt="Kids Kingdom CIC event photo 8" loading="lazy" />
+          <div class="gallery-label"><span>Event Photo 8</span></div>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">✕</button>
+    <button class="lightbox-nav lightbox-prev" onclick="event.stopPropagation(); prevLightboxImage()" aria-label="Previous">‹</button>
+    <img id="lightboxImg" src="" alt="" onclick="event.stopPropagation()" />
+    <p id="lightboxCaption" class="text-white"></p>
+    <button class="lightbox-nav lightbox-next" onclick="event.stopPropagation(); nextLightboxImage()" aria-label="Next">›</button>
+  </div>
 
   <!-- ==================== VALUES ==================== -->
   <section id="values" class="section">
@@ -263,50 +358,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ==================== GALLERY ==================== -->
-  <section id="gallery" class="section section-alt">
-    <div class="container">
-      <div class="section-header fade-in-up">
-        <h2>Events & Activities</h2>
-        <p class="section-subtitle">A glimpse into the programmes and moments that shape our children's journeys.</p>
-        <div class="section-line bg-accent"></div>
-      </div>
-      <div class="gallery-grid fade-in-up">
-        <button class="gallery-item" onclick="openLightbox(0)">
-          <img src="assets/gallery-arts.jpg" alt="Children enjoying arts and crafts" loading="lazy" />
-          <div class="gallery-label"><span>Arts & Crafts</span></div>
-        </button>
-        <button class="gallery-item" onclick="openLightbox(1)">
-          <img src="assets/gallery-sports.jpg" alt="Children playing team sports outdoors" loading="lazy" />
-          <div class="gallery-label"><span>Sports Day</span></div>
-        </button>
-        <button class="gallery-item" onclick="openLightbox(2)">
-          <img src="assets/gallery-mentoring.jpg" alt="Group reading and mentoring session" loading="lazy" />
-          <div class="gallery-label"><span>Reading Circle</span></div>
-        </button>
-        <button class="gallery-item" onclick="openLightbox(3)">
-          <img src="assets/gallery-camp.jpg" alt="Summer camp campfire activities" loading="lazy" />
-          <div class="gallery-label"><span>Summer Camp</span></div>
-        </button>
-        <button class="gallery-item" onclick="openLightbox(4)">
-          <img src="assets/gallery-workshop.jpg" alt="Children's workshop and conference" loading="lazy" />
-          <div class="gallery-label"><span>Workshop</span></div>
-        </button>
-        <button class="gallery-item" onclick="openLightbox(5)">
-          <img src="assets/gallery-community.jpg" alt="Community service and planting" loading="lazy" />
-          <div class="gallery-label"><span>Community Day</span></div>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">✕</button>
-    <img id="lightboxImg" src="" alt="" onclick="event.stopPropagation()" />
-  </div>
-
   <!-- ==================== TESTIMONIALS ==================== -->
   <section id="testimonials" class="section">
     <div class="container">
@@ -345,25 +396,19 @@
           <div class="card-icon-lg bg-secondary-light">🤲</div>
           <h3>Volunteer</h3>
           <p>Give your time and talents to support our programmes and make a difference in children's lives.</p>
-          <button class="btn btn-primary btn-full">Join as Volunteer</button>
+          <a href="https://wa.me/447742551426?text=Hello%20Kids%20Kingdom%20CIC%2C%20I%27m%20interested%20in%20joining%20as%20a%20volunteer." target="_blank" rel="noreferrer noopener" class="btn btn-primary btn-full">Join as Volunteer</a>
         </div>
         <div class="card text-center fade-in-up">
           <div class="card-icon-lg bg-secondary-light">🎁</div>
           <h3>Donate</h3>
           <p>Your generous donation helps us expand our programmes and reach more children in need.</p>
-          <button class="btn btn-primary btn-full">Make a Donation</button>
+          <a href="https://wa.me/447742551426?text=Hello%20Kids%20Kingdom%20CIC%2C%20I%27d%20like%20to%20make%20a%20donation." target="_blank" rel="noreferrer noopener" class="btn btn-primary btn-full">Make a Donation</a>
         </div>
         <div class="card text-center fade-in-up">
           <div class="card-icon-lg bg-secondary-light">🤝</div>
           <h3>Partner With Us</h3>
           <p>Collaborate with Kids Kingdom CIC to create greater impact across the community.</p>
-          <button class="btn btn-primary btn-full">Become a Partner</button>
-        </div>
-        <div class="card text-center fade-in-up">
-          <div class="card-icon-lg bg-secondary-light">➕</div>
-          <h3>Register a Child</h3>
-          <p>Sign up your child for one of our enriching programmes and watch them flourish.</p>
-          <button class="btn btn-primary btn-full">Register Now</button>
+          <a href="https://wa.me/447742551426?text=Hello%20Kids%20Kingdom%20CIC%2C%20I%27m%20interested%20in%20partnering%20with%20you." target="_blank" rel="noreferrer noopener" class="btn btn-primary btn-full">Become a Partner</a>
         </div>
       </div>
     </div>
@@ -411,19 +456,34 @@
           </div>
           <div class="info-item">
             <div class="info-icon">✉️</div>
-            <div><h3>Email</h3><p>info@kidskingdomcic.org</p></div>
+            <div><h3>Email</h3><p><a href="mailto:info@kidskingdomcic.online">info@kidskingdomcic.online</a></p></div>
           </div>
           <div class="info-item">
             <div class="info-icon">📞</div>
-            <div><h3>Phone</h3><p>+44 20 1234 5678</p></div>
+            <div><h3>Phone</h3><p><a href="tel:+447742551426">+44 07742 551426</a></p></div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">💬</div>
+            <div>
+              <h3>WhatsApp</h3>
+              <p><a href="https://wa.me/447742551426" target="_blank" rel="noreferrer noopener" class="btn btn-outline">Message Us</a></p>
+            </div>
           </div>
           <div class="social-links">
             <h3>Follow Us</h3>
             <div class="social-icons">
-              <a href="#" class="social-icon">F</a>
-              <a href="#" class="social-icon">I</a>
-              <a href="#" class="social-icon">T</a>
-              <a href="#" class="social-icon">Y</a>
+              <a href="https://facebook.com" class="social-icon" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.99H7.898v-2.888h2.54V9.845c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562v1.875h2.773l-.443 2.888h-2.33v6.99C18.343 21.128 22 16.991 22 12z"/></svg>
+              </a>
+              <a href="https://instagram.com" class="social-icon" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.75 2h8.5C19.55 2 22 4.45 22 7.75v8.5C22 19.55 19.55 22 16.25 22h-8.5C4.45 22 2 19.55 2 16.25v-8.5C2 4.45 4.45 2 7.75 2zm.25 2C5.9 4 4 5.9 4 7.75v8.5C4 18.1 5.9 20 7.75 20h8.5c1.85 0 3.75-1.9 3.75-3.75v-8.5C20 5.9 18.1 4 16.25 4h-8.5zM12 7.25a4.75 4.75 0 1 1 0 9.5 4.75 4.75 0 0 1 0-9.5zm0 2A2.75 2.75 0 1 0 12 14.75 2.75 2.75 0 0 0 12 9.25zm5.75-2.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+              </a>
+              <a href="https://twitter.com" class="social-icon" aria-label="Twitter">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.28 4.28 0 0 0 1.88-2.37 8.56 8.56 0 0 1-2.72 1.04 4.27 4.27 0 0 0-7.29 3.89 12.12 12.12 0 0 1-8.8-4.46 4.27 4.27 0 0 0 1.32 5.7 4.24 4.24 0 0 1-1.94-.54v.05a4.27 4.27 0 0 0 3.43 4.18 4.28 4.28 0 0 1-1.93.07 4.27 4.27 0 0 0 3.99 2.96A8.56 8.56 0 0 1 2 18.58a12.08 12.08 0 0 0 6.56 1.92c7.88 0 12.2-6.53 12.2-12.19 0-.19 0-.39-.01-.58A8.7 8.7 0 0 0 22.46 6z"/></svg>
+              </a>
+              <a href="https://youtube.com" class="social-icon" aria-label="YouTube">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21.8 7.1s-.2-1.63-.8-2.35c-.76-.8-1.62-.8-2.01-.85C15.87 3.7 12 3.7 12 3.7h0s-3.87 0-6.96.1c-.39.05-1.25.05-2.01.85C2.4 5.47 2.2 7.1 2.2 7.1S2 9.04 2 10.98v2.05c0 1.94.2 3.88.2 3.88s.2 1.63.8 2.35c.76.8 1.76.78 2.2.87 1.6.16 6.82.16 6.82.16s3.87 0 6.96-.1c.39-.05 1.25-.05 2.01-.85.6-.72.8-2.35.8-2.35s.2-1.94.2-3.88v-2.05c0-1.94-.2-3.88-.2-3.88zM9.75 15.5v-7l6.2 3.5-6.2 3.5z"/></svg>
+              </a>
             </div>
           </div>
         </div>
@@ -450,7 +510,7 @@
       <div class="footer-grid">
         <div>
           <div class="footer-brand">
-            <img src="assets/logo.png" alt="Kids Kingdom CIC" class="footer-logo" />
+            <img src="assets/logo1.JPG" alt="Kids Kingdom CIC" class="footer-logo" />
             <h3>Kids Kingdom CIC</h3>
           </div>
           <p class="footer-desc">Enriching children's lives through mentoring, wellbeing, leadership, and spiritual growth.</p>
@@ -460,6 +520,7 @@
           <nav class="footer-links">
             <a href="#about">About</a>
             <a href="#programmes">Programmes</a>
+            <a href="events.html">Events</a>
             <a href="#values">Values</a>
             <a href="#get-involved">Get Involved</a>
             <a href="#contact">Contact</a>
@@ -475,6 +536,8 @@
       </div>
     </div>
   </footer>
+
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">↑</button>
 
   <script src="script.js"></script>
 </body>
