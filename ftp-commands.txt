@@ -1,0 +1,13 @@
+open ftp.fasthosts.co.uk
+ftp.fasthosts.co.uk
+Kidskingdom@
+binary
+cd /
+put index.html
+put events.html
+put style.css
+put script.js
+mkdir assets
+cd assets
+mput assets/*
+bye
