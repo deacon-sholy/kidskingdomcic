@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Kids Kingdom CIC</title>
+  <meta name="description" content="Contact Kids Kingdom CIC to learn more about our programmes or discuss partnership opportunities." />
+  <link rel="icon" type="image/jpeg" href="assets/logo1.JPG" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-loader" id="pageLoader" aria-hidden="true">
+    <div class="loader-inner">
+      <img src="assets/logo1.JPG" alt="Kids Kingdom CIC" class="loader-logo" />
+      <div class="loader-spinner"></div>
+      <p>Loading Kids Kingdom CIC...</p>
+    </div>
+  </div>
+
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/logo1.JPG" alt="Kids Kingdom CIC" class="nav-logo" />
+        <span class="nav-title">Kids Kingdom CIC</span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="programmes.html">Programmes</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="programmes.html">Programmes</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <header class="page-hero page-hero-events" style="background: linear-gradient(135deg, hsl(213 56% 16% / 0.82), hsl(213 56% 26% / 0.74)), url('assets/kids6.jpeg') center/cover no-repeat;">
+    <div class="page-hero-overlay"></div>
+    <div class="container page-hero-content">
+      <p class="page-eyebrow fade-in-up">Get in Touch</p>
+      <h1 class="fade-in-up">We welcome enquiries from parents, schools, and organisations interested in our programmes.</h1>
+      <p class="fade-in-up">If you would like to learn more about our work or explore partnership opportunities, please contact us.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <h2>Contact Page</h2>
+        <p class="section-subtitle">Alternatively, complete our enquiry form and a member of our team will respond promptly.</p>
+        <div class="section-line bg-primary"></div>
+      </div>
+      <div class="contact-grid">
+        <div class="card fade-in-up" id="contactFormCard">
+          <form id="contactForm" class="contact-form" action="https://formsubmit.co/info@kidskingdom.online" method="POST">
+            <input type="hidden" name="_subject" value="New Kids Kingdom CIC enquiry" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <div class="form-group">
+              <label for="contactName">Name</label>
+              <input type="text" id="contactName" name="name" required placeholder="Your full name" />
+            </div>
+            <div class="form-group">
+              <label for="contactEmail">Email</label>
+              <input type="email" id="contactEmail" name="email" required placeholder="your@email.com" />
+            </div>
+            <div class="form-group">
+              <label for="contactOrganisation">Organisation</label>
+              <input type="text" id="contactOrganisation" name="organisation" placeholder="School, family, or organisation name" />
+            </div>
+            <div class="form-group">
+              <label for="contactMessage">Message</label>
+              <textarea id="contactMessage" name="message" required rows="5" placeholder="Tell us how we can help"></textarea>
+            </div>
+            <div class="form-group honeypot-field">
+              <label for="website">Leave this field blank</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="contactSubmitBtn">
+              <span class="btn-text">Send Enquiry</span>
+              <span class="btn-spinner hidden"></span>
+            </button>
+          </form>
+        </div>
+
+        <div class="contact-info fade-in-up">
+          <div class="info-item">
+            <div class="info-icon">&#9993;</div>
+            <div>
+              <h3>Email</h3>
+              <p><a href="mailto:info@kidskingdom.online">info@kidskingdom.online</a></p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">&#9742;</div>
+            <div>
+              <h3>Phone</h3>
+              <p><a href="tel:+447742551426">+44 7742 551426</a></p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">&#128172;</div>
+            <div>
+              <h3>WhatsApp</h3>
+              <p><a href="https://wa.me/447742551426" target="_blank" rel="noreferrer noopener">+44 7742 551426</a></p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">&#128205;</div>
+            <div>
+              <h3>Location</h3>
+              <p>London</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">&#128101;</div>
+            <div>
+              <h3>Who Can Enquire</h3>
+              <p>Parents, schools, churches, community organisations, and local groups interested in our programmes or partnerships.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <img src="assets/logo1.JPG" alt="Kids Kingdom CIC" class="footer-logo" />
+            <h3>Kids Kingdom CIC</h3>
+          </div>
+          <p class="footer-desc">Building confidence, identity, and strong foundations for the future.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <nav class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="programmes.html">Programmes</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p class="footer-desc"><a href="mailto:info@kidskingdom.online">info@kidskingdom.online</a></p>
+          <p class="footer-desc"><a href="tel:+447742551426">+44 7742 551426</a></p>
+          <p class="footer-desc"><a href="https://wa.me/447742551426" target="_blank" rel="noreferrer noopener">WhatsApp: +44 7742 551426</a></p>
+          <p class="footer-desc">London</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Kids Kingdom CIC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">↑</button>
+
+  <div class="success-popup" id="successPopup">
+    <div class="popup-content">
+      <div class="popup-icon">SUCCESS</div>
+      <h3>Message Sent Successfully!</h3>
+      <p>Thank you for contacting us. We will get back to you soon.</p>
+      <button class="btn btn-primary" onclick="closeSuccessPopup()">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

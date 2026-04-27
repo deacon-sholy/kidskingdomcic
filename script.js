@@ -448,10 +448,10 @@ function showSuccessPopup() {
     successPopup.classList.add('active');
     document.body.style.overflow = 'hidden'; // Prevent background scrolling
     
-    // Auto-close after 5 seconds
+    // Auto-close after 3 seconds
     setTimeout(() => {
       closeSuccessPopup();
-    }, 5000);
+    }, 3000);
   }
 }
 
@@ -473,32 +473,18 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // Add form submission handlers
-  const contactForm = document.getElementById('contactForm');
   const newsletterForm = document.getElementById('newsletterForm');
   
-  if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-      // For Formsubmit, we'll show success after a brief delay
-      setTimeout(() => {
-        showSuccessPopup();
-        contactForm.reset();
-      }, 1000);
-    });
-  }
-  
   if (newsletterForm) {
-    newsletterForm.addEventListener('submit', function(e) {
-      // For Formsubmit, we'll show success after a brief delay
-      setTimeout(() => {
-        showSuccessPopup();
-        newsletterForm.reset();
-      }, 1000);
+    newsletterForm.addEventListener('submit', function() {
+      showLoading(newsletterSubmitBtn);
     });
   }
 });
 
 // ========== FORM SUBMISSION LOADING STATES ==========
 
+const contactForm = document.getElementById('contactForm');
 const contactSubmitBtn = document.getElementById('contactSubmitBtn');
 const newsletterSubmitBtn = document.getElementById('newsletterSubmitBtn');
 
@@ -548,5 +534,33 @@ if (newsletterForm && newsletterSuccess) {
     } catch (error) {
       alert('Oops! There was a problem subscribing. Please try again.');
     } finally { hideLoading(newsletterSubmitBtn); } // Hide loading spinner regardless of outcome
+  });
+}
+
+if (contactForm && successPopup) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    showLoading(contactSubmitBtn);
+
+    const formData = new FormData(contactForm);
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        contactForm.reset();
+        showSuccessPopup();
+      } else {
+        alert('Oops! There was a problem sending your enquiry. Please try again.');
+      }
+    } catch (error) {
+      alert('Oops! There was a problem sending your enquiry. Please try again.');
+    } finally {
+      hideLoading(contactSubmitBtn);
+    }
   });
 }
