@@ -227,6 +227,25 @@ function closeLightbox() {
   document.body.style.overflow = '';
 }
 
+const lightboxCloseBtn = document.getElementById('lightboxClose');
+const lightboxNextBtn = document.getElementById('lightboxNext');
+const lightboxPrevBtn = document.getElementById('lightboxPrev');
+
+if (allGalleryItems.length) {
+  allGalleryItems.forEach((item, index) => {
+    item.addEventListener('click', () => openLightbox(index));
+  });
+}
+
+if (lightboxCloseBtn) lightboxCloseBtn.addEventListener('click', closeLightbox);
+if (lightboxNextBtn) lightboxNextBtn.addEventListener('click', nextLightboxImage);
+if (lightboxPrevBtn) lightboxPrevBtn.addEventListener('click', prevLightboxImage);
+if (lightbox) {
+  lightbox.addEventListener('click', (event) => {
+    if (event.target === lightbox) closeLightbox();
+  });
+}
+
 function nextLightboxImage() {
   const visibleGalleryItems = Array.from(allGalleryItems).filter(item => !item.classList.contains('hidden'));
   if (visibleGalleryItems.length === 0) return;
@@ -358,6 +377,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const hiddenCount = document.querySelectorAll('.gallery-item.hidden').length;
     if (hiddenCount > 0) {
       loadMoreBtn.textContent = `Load More Images (${hiddenCount} available)`;
+      loadMoreBtn.addEventListener('click', loadMoreImages);
     } else {
       loadMoreBtn.style.display = 'none';
     }
@@ -509,6 +529,7 @@ const newsletterSuccess = document.getElementById('newsletterSuccess');
 
 if (newsletterForm && newsletterSuccess) {
   newsletterForm.addEventListener('submit', async (e) => {
+    if (!window.fetch || !window.FormData) return;
     e.preventDefault();
 
     const formData = new FormData(newsletterForm);
@@ -539,6 +560,7 @@ if (newsletterForm && newsletterSuccess) {
 
 if (contactForm && successPopup) {
   contactForm.addEventListener('submit', async (e) => {
+    if (!window.fetch || !window.FormData) return;
     e.preventDefault();
     showLoading(contactSubmitBtn);
 
@@ -564,3 +586,15 @@ if (contactForm && successPopup) {
     }
   });
 }
+
+// ========== EVENT PREVIEW TOGGLES ==========
+document.querySelectorAll('.event-preview-toggle').forEach((button) => {
+  button.addEventListener('click', () => {
+    const eventCard = button.closest('.event-card');
+    if (!eventCard) return;
+
+    const isExpanded = eventCard.classList.toggle('expanded');
+    button.setAttribute('aria-expanded', String(isExpanded));
+    button.textContent = isExpanded ? 'Show Less' : 'Read Full Details';
+  });
+});
